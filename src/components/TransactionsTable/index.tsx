@@ -16,7 +16,7 @@ export function TransactionsTable() {
 
   useEffect(() => {
     api.get("transactions")
-    .then(response => setTransactions(response.data))
+    .then(response => setTransactions(response.data.transactions))
   }, []);
 
   return (
@@ -46,26 +46,13 @@ export function TransactionsTable() {
               return (
                 <tr key={transaction.id}>
                   <td>{transaction.title}</td>
-                  <td className={transaction.type}>R$ {transaction.amount}</td>
+                  <td className={transaction.type}>{transaction.type === 'withdraw' ? '-' : ''}R${transaction.amount}</td>
                   <td>{transaction.category}</td>
                   <td>{transaction.createdAt}</td>
                 </tr>
               )
-            } )
-
+            })
           }
-          <tr>
-            <td>Desenvolvimento de Website</td>
-            <td className="deposit">R$12000</td>
-            <td>Desenvolvimento</td>
-            <td>16/04/2003</td>
-          </tr>
-          <tr>
-            <td>Aluguel</td>
-            <td className="withdraw"> - R$1000</td>
-            <td>Casa</td>
-            <td>18/04/2003</td>
-          </tr>
         </tbody>
       </table>
     </Container>
