@@ -17,7 +17,7 @@ createServer(
             title: 'Freelancing de website',
             type: 'deposit',
             category: 'dev',
-            amount: 6000,
+            amount: 6030.50,
             createdAt: new Date('2021-02-09 09:00:00'),
           },
           {
